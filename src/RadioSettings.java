@@ -1,7 +1,7 @@
 
 
 
-public class RadioSettings implements Radio{
+public class RadioSettings implements Radio {
 
     private double amStation;
     private double fmStation;
@@ -87,4 +87,6 @@ public class RadioSettings implements Radio{
         amStation = 530;
         fmStation = 87.9;
     }
+
+
 }
