@@ -6,8 +6,8 @@ public class RadioSettings implements Radio{
     private double amStation;
     private double fmStation;
     private boolean turnOn;
-    private final String[] amList = new String[12];
-    private final String[] fmList = new String[12];
+    private final double [] amList = new double[12];
+    private final double [] fmList = new double[12];
     private boolean frequency;
 
     @Override
@@ -17,46 +17,74 @@ public class RadioSettings implements Radio{
 
     @Override
     public void turnOnOff() {
-        if (turnOn){
-            turnOn = false;
-        } else {
-            turnOn = true;
-        }
-
+        turnOn = !turnOn;
     }
 
     @Override
     public void nextStation(boolean station) {
-
+        if (station){
+            if (amStation == 1610){
+                amStation = 530;
+            } else {
+                amStation += 10;
+            }
+        } else {
+            if(fmStation == 107.9){
+                fmStation = 87.9;
+            } else {
+                fmStation += 0.2;
+            }
+        }
     }
 
     @Override
     public void prevStation(boolean station) {
-
+        if (station){
+            if (amStation == 530) amStation = 1610;
+             else amStation -= 10;
+        } else {
+            if(fmStation == 87.9) fmStation = 107.9;
+             else fmStation -= 0.2;
+        }
     }
 
     @Override
     public double getStation() {
-        return 0;
+        if (frequency) return amStation;
+        else return fmStation;
     }
 
     @Override
     public void saveStation(int position, double station) {
-
+        if(frequency) amList[position] = station;
+         else fmList[position] = station;
     }
 
     @Override
     public double getSavedStation(int position) {
-        return 0;
+        if (frequency){
+            amStation = amList[position];
+            return amStation;
+        } else {
+            fmStation = fmList[position];
+            return fmStation;
+        }
     }
 
     @Override
     public boolean getFrequency() {
-        return false;
+        return frequency;
     }
 
     @Override
     public void switchAMFM() {
+        frequency = !frequency;
+    }
 
+    public RadioSettings(){
+        turnOn = false;
+        frequency = false;
+        amStation = 530;
+        fmStation = 87.9;
     }
 }
