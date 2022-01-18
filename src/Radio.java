@@ -1,3 +1,10 @@
+/**
+  @file Radio.java
+ * @author Majo Gil - 20337
+ * @author Guillermo Stantos - 191517
+ * @author Sebastian Villatoro - 211039
+ * @date 20/01/2022
+ */
 
 /**
  * Defines all the methods that a Radio should have.
