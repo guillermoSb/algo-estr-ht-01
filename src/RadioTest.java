@@ -21,7 +21,7 @@ public class RadioTest {
         double currentStation = radioSettings.getStation();
         assertNotNull(currentStation, "currentStation cannot be null"); // Check if the current station exists.
         radioSettings.nextStation(radioSettings.getFrequency());    // Go to the next station on the current frequency.
-        // The tests are different depending ono the frequency
+        // The tests are different depending on the frequency
         if (radioSettings.getFrequency()) {
             assertTrue(radioSettings.getStation() == currentStation + 10 || radioSettings.getStation() == 530);
         } else {
