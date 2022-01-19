@@ -19,7 +19,7 @@ public static void main(String[] args){
         while(opcion != 6){
             //Se crea el menu con las diferentes opciones 
             System.out.println("-----------Opciones:-----------");
-            System.out.println("-----------(1)Siguiente Estación-----------");
+            System.out.println("-----------(1)Siguiente Estacion-----------");
             System.out.println("-----------(2)Estacion Previa-----------");
             System.out.println("-----------(3)Guardar emisora-----------");
             System.out.println("-----------(4)Obtener frecuencia-----------");
@@ -66,6 +66,10 @@ public static void main(String[] args){
                         
                         radiosettings.switchAMFM();
                         
+                    }
+
+                    if(opcion==6){
+                        System.out.println("Feliz dia");
                     }
                     
     
