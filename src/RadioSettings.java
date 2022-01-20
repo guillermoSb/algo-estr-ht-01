@@ -47,12 +47,14 @@ public class RadioSettings implements Radio {
                 amStation = 530;
             } else {
                 amStation += 10;
+                amStation =Math.round(amStation);
             }
         } else {
             if(fmStation == 107.9){
                 fmStation = 87.9;
             } else {
                 fmStation += 0.2;
+                fmStation =Math.round(fmStation*100.0)/100.0;
             }
         }
     }
@@ -67,9 +69,11 @@ public class RadioSettings implements Radio {
         if (station){
             if (amStation == 530) amStation = 1610;
              else amStation -= 10;
+            amStation =Math.round(amStation);
         } else {
             if(fmStation == 87.9) fmStation = 107.9;
              else fmStation -= 0.2;
+            fmStation =Math.round(fmStation*100.0)/100.0;
         }
     }
 
@@ -105,10 +109,16 @@ public class RadioSettings implements Radio {
     @Override
     public double getSavedStation(int position) {
         if (frequency){
-            amStation = amList[position];
+            double stn = amList[position];
+            if (stn != 0) {
+                amStation = stn;
+            }
             return amStation;
         } else {
-            fmStation = fmList[position];
+            double stn = fmList[position];
+            if (stn != 0) {
+                fmStation = stn;
+            }
             return fmStation;
         }
     }
