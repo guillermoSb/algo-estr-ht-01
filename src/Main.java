@@ -1,13 +1,18 @@
+/**
+ * @file Main.java
+ * @author Majo Gil - 20337
+ * @author Guillermo Stantos - 191517
+ * @author Sebastian Villatoro - 211039
+ * @date 20/01/2022
+ */
+
 import java.util.Scanner;
 
 public class Main {
    
 public static void main(String[] args){
 		Scanner scan = new Scanner(System.in);
-
         RadioSettings radiosettings = new RadioSettings();
-       
-       
         int opcion1;
         int opcion = 0;
         
@@ -29,7 +34,7 @@ public static void main(String[] args){
             if(frequency) amfm = "AM";
             else amfm = "FM";
 
-            String emisora = String.valueOf(radiosettings.getStation());
+            String emisora = String.valueOf(Math.round(radiosettings.getStation()*100.0)/100.0);
 
             //Se crea el menu con las diferentes opciones 
             System.out.println("\tRadio: "+ amfm + "\n\t\t" + emisora + "\n------------------- " +
