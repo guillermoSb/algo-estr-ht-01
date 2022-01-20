@@ -25,7 +25,7 @@ public class RadioTest {
         if (radioSettings.getFrequency()) {
             assertTrue(radioSettings.getStation() == currentStation + 10 || radioSettings.getStation() == 530);
         } else {
-            assertTrue(radioSettings.getStation() == currentStation + 0.2 ||
+            assertTrue(radioSettings.getStation() == Math.round((currentStation + 0.2)*100.0)/100.0 ||
                                 radioSettings.getStation() == 87.9);
         }
         // Assert that the back dial is working
